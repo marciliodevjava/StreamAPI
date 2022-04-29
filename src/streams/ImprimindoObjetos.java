@@ -32,6 +32,6 @@ public class ImprimindoObjetos {
 		//Stream de objetos
 		System.out.println("\nUtiliando Stream");
 		Stream<String> stream = aprovados.stream();
-		stream.forEach(System.out::println); // Laço interno
+		stream.forEach(System.out::println); // Laço interno!
 	}
 }
