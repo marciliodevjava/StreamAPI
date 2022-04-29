@@ -30,8 +30,7 @@ public class ImprimindoObjetos {
 		}
 		
 		//Stream de objetos
-		System.out.println();
-		System.out.println("Utiliando Stream");
+		System.out.println("\nUtiliando Stream");
 		Stream<String> stream = aprovados.stream();
 		stream.forEach(System.out::println);
 	}
