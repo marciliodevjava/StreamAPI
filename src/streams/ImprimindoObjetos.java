@@ -3,6 +3,7 @@ package streams;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class ImprimindoObjetos {
 
@@ -23,9 +24,15 @@ public class ImprimindoObjetos {
 
 		System.out.println();
 		System.out.println("Usando o Iterator...");
-		Iterator<String> it = aprovados.iterator();
-		while(it.hasNext()) {
-			System.out.println("Nome: " + it.next());
+		Iterator<String> iterator = aprovados.iterator();
+		while(iterator.hasNext()) {
+			System.out.println("Nome: " + iterator.next());
 		}
+		
+		//Stream de objetos
+		System.out.println();
+		System.out.println("Utiliando Stream");
+		Stream<String> stream = aprovados.stream();
+		stream.forEach(System.out::println);
 	}
 }
