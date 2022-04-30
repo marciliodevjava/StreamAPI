@@ -2,6 +2,7 @@ package streams;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Function;
 import java.util.function.Predicate;
 
 public class Filter {
@@ -17,11 +18,13 @@ public class Filter {
 
 		List<Aluno> alunos = Arrays.asList(a1, a2, a3, a4, a5, a6);
 		
-		Predicate<Aluno> aprovado = a -> a.nota >= 7;
-		Predicate<Aluno> reprovado = a -> a.nota < 7;
+		Predicate<Aluno> aprovado = a -> a.nota >= 7 && a.nota <= 10;
+		Predicate<Aluno> reprovado = a -> a.nota >= 0 && a.nota < 7;
+		Function<Aluno, String> saudacaoAprovado = a -> "Parabéns " + a.nome + "! Voce foi Aprovado(a)!";
+		Function<Aluno, String> saudacaoReprovado = a -> "Infelizmente " + a.nome + ", Voce foi Reprovado(a).";
 		
-		alunos.stream().filter(aprovado).map(a -> "Parabéns " + a.nome + "! Voce foi Aprovado(a)!").forEach(System.out::println);
+		alunos.stream().filter(aprovado).map(saudacaoAprovado).forEach(System.out::println);
 		System.out.println();
-		alunos.stream().filter(reprovado).map(a -> "Infelizmente " + a.nome + ", Voce foi Reprovado(a).").forEach(System.out::println);
+		alunos.stream().filter(reprovado).map(saudacaoReprovado).forEach(System.out::println);
 	}
 }
