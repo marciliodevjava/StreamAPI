@@ -1,7 +1,5 @@
 package streams;
 
-import java.io.PrintStream;
-
 public class Produto {
 
 	final String nome;
